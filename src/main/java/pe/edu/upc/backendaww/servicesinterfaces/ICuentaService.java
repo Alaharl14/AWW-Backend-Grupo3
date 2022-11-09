@@ -11,6 +11,7 @@ public interface ICuentaService {
     List<Cuenta> listar();
     public void eliminar(int idCuenta);
     public Optional<Cuenta> listarId(int idCuenta);
+    List<Cuenta> buscarDistrito(String nombreDistrito);
 
     List<Cuenta> buscarCuenta(String nombreCuenta);
 }

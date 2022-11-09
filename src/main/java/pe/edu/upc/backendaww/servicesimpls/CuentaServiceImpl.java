@@ -42,6 +42,10 @@ public class CuentaServiceImpl implements ICuentaService {
         return cR.findById(idCuenta);
     }
     @Override
+    public List<Cuenta> buscarDistrito(String nombreDistrito) {
+        return cR.buscarDistrito(nombreDistrito);
+    }
+    @Override
     public List<Cuenta> buscarCuenta(String nombreCuenta) { return cR.buscarCuenta(nombreCuenta); }
 
 }
