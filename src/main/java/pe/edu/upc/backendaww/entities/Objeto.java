@@ -22,16 +22,38 @@ public class Objeto implements Serializable{
     @Column(name = "fechaRegistrado", length = 20, nullable = false)
     private String fechaRegistrado;
 
+    @ManyToOne
+    @JoinColumn(name = "idCuenta", nullable = false)
+    private Cuenta cuenta;
+
+    @ManyToOne
+    @JoinColumn(name = "idRecordatorio", nullable = false)
+    private Recordatorio recordatorio;
+
+    @ManyToOne
+    @JoinColumn(name = "idCategoriaObjeto", nullable = false)
+    private CategoriaObjeto categoriaObjeto;
+
+    @ManyToOne
+    @JoinColumn(name = "idEstadoObjeto", nullable = false)
+    private EstadoObjeto estadoObjeto;
+
     public Objeto() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
-    public Objeto(int idObjeto, String nombreObjeto, String distancia, String distanciaLimite, String ubicacion, String fechaRegistrado) {
+    public Objeto(int idObjeto, String nombreObjeto, String distancia, String distanciaLimite, String ubicacion, String fechaRegistrado, Cuenta cuenta, Recordatorio recordatorio, CategoriaObjeto categoriaObjeto, EstadoObjeto estadoObjeto) {
         this.idObjeto = idObjeto;
         this.nombreObjeto = nombreObjeto;
         this.distancia = distancia;
         this.distanciaLimite = distanciaLimite;
         this.ubicacion = ubicacion;
         this.fechaRegistrado = fechaRegistrado;
+        this.cuenta = cuenta;
+        this.recordatorio = recordatorio;
+        this.categoriaObjeto = categoriaObjeto;
+        this.estadoObjeto = estadoObjeto;
     }
 
     public int getIdObjeto() {
@@ -80,5 +102,36 @@ public class Objeto implements Serializable{
 
     public void setFechaRegistrado(String fechaRegistrado) {
         this.fechaRegistrado = fechaRegistrado;
+    }
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
+    }
+
+    public Recordatorio getRecordatorio() {
+        return recordatorio;
+    }
+
+    public void setRecordatorio(Recordatorio recordatorio) {
+        this.recordatorio = recordatorio;
+    }
+
+    public CategoriaObjeto getCategoriaObjeto() {
+        return categoriaObjeto;
+    }
+
+    public void setCategoriaObjeto(CategoriaObjeto categoriaObjeto) {
+        this.categoriaObjeto = categoriaObjeto;
+    }
+
+    public EstadoObjeto getEstadoObjeto() {
+        return estadoObjeto;
+    }
+
+    public void setEstadoObjeto(EstadoObjeto estadoObjeto) {
+        this.estadoObjeto = estadoObjeto;
     }
 }
