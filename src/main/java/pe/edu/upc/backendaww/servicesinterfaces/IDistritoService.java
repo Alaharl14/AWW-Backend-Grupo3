@@ -10,6 +10,8 @@ public interface IDistritoService {
     List<Distrito> listar();
     public void eliminar(int idDistrito);
     public Optional<Distrito> listarId(int idDistrito);
+    List<Distrito> buscarCiudad(String nombreCiudad);
+
     List<Distrito> buscarDistrito(String nombreDistrito);
 
 }

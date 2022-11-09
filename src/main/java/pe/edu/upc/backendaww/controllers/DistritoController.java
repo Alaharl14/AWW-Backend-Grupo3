@@ -41,6 +41,10 @@ public class DistritoController {
 
         List<Distrito> listaDistritos;
         listaDistritos =dService.buscarDistrito(d.getNombreDistrito());
+        if(listaDistritos.isEmpty()) {
+
+            listaDistritos = dService.buscarCiudad(d.getCiudad().getNombreCiudad());
+        }
         return listaDistritos;
     }
 

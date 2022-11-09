@@ -38,6 +38,9 @@ public class DistritoServiceImpl implements IDistritoService {
     public Optional<Distrito> listarId(int idDistrito) {
         return dR.findById(idDistrito);
     }
+    public List<Distrito> buscarCiudad(String nombreCiudad) {
+        return dR.buscarCiudad(nombreCiudad);
+    }
     @Override
     public List<Distrito> buscarDistrito(String nombreDistrito) {
         return dR.buscarDistrito(nombreDistrito);
