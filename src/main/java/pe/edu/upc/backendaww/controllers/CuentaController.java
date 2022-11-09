@@ -41,6 +41,10 @@ public class CuentaController {
     public List<Cuenta> buscar(@RequestBody Cuenta c) throws ParseException{
         List<Cuenta> listaCuentas;
         listaCuentas =cService.buscarCuenta(c.getNombreCuenta());
+        if(listaCuentas.isEmpty()) {
+
+            listaCuentas = cService.buscarDistrito(c.getDistrito().getNombreDistrito());
+        }
         return listaCuentas;
     }
 
