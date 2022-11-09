@@ -22,16 +22,23 @@ public class Cuenta implements Serializable {
     @Column(name = "direccionCuenta", length = 120, nullable = false)
     private String direccionCuenta;
 
+    @ManyToOne
+    @JoinColumn(name = "idDistrito", nullable = false)
+    private Distrito distrito;
+
     public Cuenta() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
-    public Cuenta(int idCuenta, String nombreCuenta, String contrasenaCuenta, String correoCuenta, String numeroCuenta, String direccionCuenta) {
+    public Cuenta(int idCuenta, String nombreCuenta, String contrasenaCuenta, String correoCuenta, String numeroCuenta, String direccionCuenta, Distrito distrito) {
         this.idCuenta = idCuenta;
         this.nombreCuenta = nombreCuenta;
         this.contrasenaCuenta = contrasenaCuenta;
         this.correoCuenta = correoCuenta;
         this.numeroCuenta = numeroCuenta;
         this.direccionCuenta = direccionCuenta;
+        this.distrito = distrito;
     }
 
     public int getIdCuenta() {
@@ -80,5 +87,12 @@ public class Cuenta implements Serializable {
 
     public void setDireccionCuenta(String direccionCuenta) {
         this.direccionCuenta = direccionCuenta;
+    }
+    public Distrito getDistrito() {
+        return distrito;
+    }
+
+    public void setDistrito(Distrito distrito) {
+        this.distrito = distrito;
     }
 }
