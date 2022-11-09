@@ -11,5 +11,8 @@ public interface IReporteService {
     List<Reporte> listar();
     public void eliminar(int idReporte);
     public Optional<Reporte> listarId(int idReporte);
+    List<Reporte> buscarObjeto(String nombreObjeto);
+
+    List<Reporte> buscarEstadoReporte(String nombreEstadoObjeto);
     List<Reporte> buscarReporte(String nombreReporte);
 }
