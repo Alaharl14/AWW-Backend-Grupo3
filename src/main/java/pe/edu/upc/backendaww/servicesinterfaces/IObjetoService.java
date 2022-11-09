@@ -11,5 +11,12 @@ public interface IObjetoService {
     List<Objeto> listar();
     public void eliminar(int idObjeto);
     public Optional<Objeto> listarId(int idObjeto);
+    List<Objeto> buscarCuenta(String nombreCuenta);
+
+    List<Objeto> buscarRecordatorio(String estadoRecordatorio);
+
+    List<Objeto> buscarCategoriaObjeto(String nombreCategoriaObjeto);
+
+    List<Objeto> buscarEstadoObjeto(String nombreEstadoObjeto);
     List<Objeto> buscarObjeto(String nombreObjeto);
 }

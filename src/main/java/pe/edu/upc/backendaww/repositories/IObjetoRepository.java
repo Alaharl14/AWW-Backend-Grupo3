@@ -10,6 +10,19 @@ import java.util.List;
 
 @Repository
 public interface IObjetoRepository extends JpaRepository<Objeto,Integer> {
+
+    @Query("from Objeto o where o.cuenta.nombreCuenta like %:nombreCuenta%")
+    List<Objeto> buscarCuenta(@Param("nombreCuenta") String nombreCuenta);
+
+    @Query("from Objeto o where o.recordatorio.estadoRecordatorio like %:estadoRecordatorio%")
+    List<Objeto> buscarRecordatorio(@Param("estadoRecordatorio") String estadoRecordatorio);
+
+    @Query("from Objeto o where o.categoriaObjeto.nombreCategoriaObjeto like %:nombreCategoriaObjeto%")
+    List<Objeto> buscarCategoriaObjeto(@Param("nombreCategoriaObjeto") String nombreCategoriaObjeto);
+
+    @Query("from Objeto o where o.estadoObjeto.nombreEstadoObjeto like %:nombreEstadoObjeto%")
+    List<Objeto> buscarEstadoObjeto(@Param("nombreEstadoObjeto") String nombreEstadoObjeto);
+
     @Query("from Objeto o where o.nombreObjeto like %:nombreObjeto%")
     List<Objeto> buscarObjeto(@Param("nombreObjeto") String nombreObjeto);
 }

@@ -43,6 +43,23 @@ public class ObjetoServiceImpl implements IObjetoService {
         return oR.findById(idObjeto);
     }
     @Override
+    public List<Objeto> buscarCuenta(String nombreCuenta) {
+        return oR.buscarCuenta(nombreCuenta);
+    }
+
+    @Override
+    public List<Objeto> buscarRecordatorio(String estadoRecordatorio) { return oR.buscarRecordatorio(estadoRecordatorio); }
+
+    @Override
+    public List<Objeto>buscarCategoriaObjeto(String nombreCategoriaObjeto) {
+        return oR.buscarCategoriaObjeto(nombreCategoriaObjeto);
+    }
+
+    @Override
+    public List<Objeto> buscarEstadoObjeto(String nombreEstadoObjeto) {
+        return oR.buscarEstadoObjeto(nombreEstadoObjeto);
+    }
+    @Override
     public List<Objeto> buscarObjeto(String nombreObjeto) {
         return oR.buscarObjeto(nombreObjeto);
     }
