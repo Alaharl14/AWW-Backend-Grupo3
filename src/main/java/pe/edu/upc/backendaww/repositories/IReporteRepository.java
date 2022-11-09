@@ -10,6 +10,11 @@ import java.util.List;
 
 @Repository
 public interface IReporteRepository extends JpaRepository<Reporte,Integer> {
+    @Query("from Reporte r where r.objeto.nombreObjeto like %:nombreObjeto%")
+    List<Reporte> buscarObjeto(@Param("nombreObjeto") String nombreObjeto);
+
+    @Query("from Reporte r where r.estadoreporte.nombreEstadoReporte like %:nombreEstadoReporte%")
+    List<Reporte> buscarEstadoReporte(@Param("nombreEstadoReporte") String nombreEstadoReporte);
 
     @Query("from Reporte r where r.nombreReporte like %:nombreReporte%")
     List<Reporte> buscarReporte(@Param("nombreReporte") String nombreReporte);

@@ -39,7 +39,13 @@ public class ReporteController {
     public List<Reporte> buscar(@RequestBody Reporte r) throws ParseException{
         List<Reporte> listaReportes;
         listaReportes =rService.buscarReporte(r.getNombreReporte());
+        if(listaReportes.isEmpty()) {
 
+            listaReportes = rService.buscarObjeto(r.getObjeto().getNombreObjeto());
+            if (listaReportes.isEmpty()){
+                listaReportes = rService.buscarEstadoReporte(r.getEstadoreporte().getNombreEstadoReporte());
+            }
+        }
         return listaReportes;
     }
 

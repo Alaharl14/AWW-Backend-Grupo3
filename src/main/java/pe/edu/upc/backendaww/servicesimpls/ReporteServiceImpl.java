@@ -40,6 +40,16 @@ public class ReporteServiceImpl implements IReporteService {
         return rR.findById(idReporte);
     }
     @Override
+    public List<Reporte> buscarObjeto(String nombreObjeto) {
+        return rR.buscarObjeto(nombreObjeto);
+    }
+
+    @Override
+    public List<Reporte> buscarEstadoReporte(String nombreEstadoReporte) {
+        return rR.buscarEstadoReporte(nombreEstadoReporte);
+    }
+
+    @Override
     public List<Reporte> buscarReporte(String nombreReporte) {
         return rR.buscarReporte(nombreReporte);
     }
