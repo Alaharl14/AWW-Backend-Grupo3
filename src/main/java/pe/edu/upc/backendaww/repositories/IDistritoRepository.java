@@ -9,6 +9,8 @@ import java.util.List;
 
 @Repository
 public interface IDistritoRepository extends JpaRepository<Distrito,Integer>{
+    @Query("from Distrito d where d.ciudad.nombreCiudad like %:nombreCiudad%")
+    List<Distrito> buscarCiudad(@Param("nombreCiudad") String nombreCiudad);
     @Query("from Distrito d where d.nombreDistrito like %:nombreDistrito%")
     List<Distrito> buscarDistrito(@Param("nombreDistrito") String nombreDistrito);
 
