@@ -41,6 +41,19 @@ public class ObjetoController {
     public List<Objeto> buscar(@RequestBody Objeto o) throws ParseException{
         List<Objeto> listaObjetos;
         listaObjetos =oService.buscarObjeto(o.getNombreObjeto());
+        if(listaObjetos.isEmpty()) {
+
+            listaObjetos = oService.buscarCuenta(o.getCuenta().getNombreCuenta());
+            if(listaObjetos.isEmpty()) {
+                listaObjetos = oService.buscarRecordatorio(o.getRecordatorio().getEstadoRecordatorio());
+                if(listaObjetos.isEmpty()){
+                    listaObjetos = oService.buscarCategoriaObjeto(o.getCategoriaObjeto().getNombreCategoriaObjeto());
+                    if(listaObjetos.isEmpty()) {
+                        listaObjetos = oService.buscarEstadoObjeto(o.getEstadoObjeto().getNombreEstadoObjeto());
+                    }
+                }
+            }
+        }
 
         return listaObjetos;
     }
