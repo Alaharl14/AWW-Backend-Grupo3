@@ -15,14 +15,25 @@ public class Reporte implements Serializable{
     @Column(name = "fechaReporte", length = 10, nullable = false)
     private String fechaReporte;
 
+    @ManyToOne
+    @JoinColumn(name = "idObjeto", nullable = false)
+    private Objeto objeto;
+
+    @ManyToOne
+    @JoinColumn(name = "idEstadoReporte", nullable = false)
+    private EstadoReporte estadoreporte;
     public Reporte() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
-    public Reporte(int idReporte, String nombreReporte, String descripcionReporte, String fechaReporte) {
+    public Reporte(int idReporte, String nombreReporte, String descripcionReporte, String fechaReporte, Objeto objeto, EstadoReporte estadoreporte) {
         this.idReporte = idReporte;
         this.nombreReporte = nombreReporte;
         this.descripcionReporte = descripcionReporte;
         this.fechaReporte = fechaReporte;
+        this.objeto = objeto;
+        this.estadoreporte = estadoreporte;
     }
 
     public int getIdReporte() {
@@ -55,6 +66,21 @@ public class Reporte implements Serializable{
 
     public void setFechaReporte(String fechaReporte) {
         this.fechaReporte = fechaReporte;
+    }
+    public Objeto getObjeto() {
+        return objeto;
+    }
+
+    public void setObjeto(Objeto objeto) {
+        this.objeto = objeto;
+    }
+
+    public EstadoReporte getEstadoreporte() {
+        return estadoreporte;
+    }
+
+    public void setEstadoreporte(EstadoReporte estadoreporte) {
+        this.estadoreporte = estadoreporte;
     }
 }
 
